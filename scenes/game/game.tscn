@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cjdega4rvn7i4"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ifgtf"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[ext_resource type="Texture2D" uid="uid://c24epyjk7176k" path="res://assets/free_-_skybox_cliffside_0.hdr" id="1_sul5r"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ifgtf"]
+panorama = ExtResource("1_sul5r")
+energy_multiplier = 0.8
 
 [sub_resource type="Sky" id="Sky_sul5r"]
-sky_material = SubResource("ProceduralSkyMaterial_ifgtf")
+sky_material = SubResource("PanoramaSkyMaterial_ifgtf")
 
 [sub_resource type="Environment" id="Environment_7h61r"]
 background_mode = 2
