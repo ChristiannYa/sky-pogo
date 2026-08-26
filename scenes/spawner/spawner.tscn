@@ -8,5 +8,3 @@ script = ExtResource("1_wtxcb")
 platform_scene = ExtResource("1_eoeca")
 
 [node name="Platform" parent="." unique_id=1091446454 instance=ExtResource("1_eoeca")]
-
-[connection signal="new" from="Platform" to="." method="on_spawn_platform"]
