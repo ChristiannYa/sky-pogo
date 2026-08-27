@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://fcond4xevwh2"]
+
+[ext_resource type="LabelSettings" uid="uid://bhoveqhi74e5w" path="res://resources/score_label.tres" id="1_dfl03"]
+[ext_resource type="Script" uid="uid://v8r6y7g31oxi" path="res://game_ui/game_ui.gd" id="1_h0okc"]
+[ext_resource type="FontFile" uid="uid://co8qmdm4sb1qw" path="res://assets/fonts/TitanOne-Regular.ttf" id="2_0osaa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0okc"]
+font = ExtResource("2_0osaa")
+font_size = 102
+font_color = Color(0.70182985, 0.745899, 0.41591293, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameUi" type="Control" unique_id=1722941089]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h0okc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1329690720]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer" unique_id=275570678]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0000"
+label_settings = ExtResource("1_dfl03")
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer" unique_id=1464858650]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Best: 0000"
+label_settings = ExtResource("1_dfl03")
+horizontal_alignment = 2
+
+[node name="GameOverColorRect" type="ColorRect" parent="." unique_id=149635434]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Label" type="Label" parent="GameOverColorRect" unique_id=346814964]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -28.0
+offset_right = 148.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_h0okc")
+horizontal_alignment = 1
+vertical_alignment = 1

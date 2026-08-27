@@ -61,4 +61,4 @@ func handle_animation():
 
 
 func _on_fallen_off_sound_finished() -> void:
-	print("game over")
+	SignalHub.emit_game_over()

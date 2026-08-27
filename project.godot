@@ -22,7 +22,6 @@ SignalHub="*uid://yqdsjj87jj0e"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [input]
 
