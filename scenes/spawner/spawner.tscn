@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://cj2syxkspb8u4"]
 
-[ext_resource type="PackedScene" uid="uid://clp1lxupvf7vy" path="res://scenes/platform/platform.tscn" id="1_eoeca"]
 [ext_resource type="Script" uid="uid://bdnyunryk3jyj" path="res://scenes/spawner/spawner.gd" id="1_wtxcb"]
+[ext_resource type="PackedScene" uid="uid://bntwf1xyudygl" path="res://scenes/platform/platform_bouncer.tscn" id="2_4t4hp"]
+[ext_resource type="PackedScene" uid="uid://dfngdhr7u6pdk" path="res://scenes/platform/platform_bouncer_1.tscn" id="3_eixug"]
+[ext_resource type="PackedScene" uid="uid://bcxi1n8dfbe4p" path="res://scenes/platform/platform_island_wave.tscn" id="3_uhn3r"]
+[ext_resource type="PackedScene" uid="uid://bsr00k00l17kp" path="res://scenes/platform/platform_island_white.tscn" id="5_xodbr"]
+[ext_resource type="PackedScene" uid="uid://ce7w5aj2rbhxe" path="res://scenes/platform/platform_three_layer.tscn" id="6_kmkwk"]
 
 [node name="Spawner" type="Node" unique_id=1594236098]
 script = ExtResource("1_wtxcb")
-platform_scene = ExtResource("1_eoeca")
+platform_scenes = Array[PackedScene]([ExtResource("2_4t4hp"), ExtResource("3_eixug"), ExtResource("3_uhn3r"), ExtResource("5_xodbr"), ExtResource("6_kmkwk")])
 
-[node name="Platform" parent="." unique_id=1091446454 instance=ExtResource("1_eoeca")]
+[node name="Platform" parent="." unique_id=1091446454 instance=ExtResource("3_uhn3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3920815, 0)

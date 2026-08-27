@@ -20,8 +20,8 @@ func _physics_process(delta: float):
 	handle_rotation(delta)
 	handle_movement()
 	handle_air_hop()
-	move_and_slide()
 	handle_animation()
+	move_and_slide()
 
 func handle_gravity(delta: float):
 	velocity.y -= _GRAVITY * delta
