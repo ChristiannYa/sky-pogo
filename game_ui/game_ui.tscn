@@ -12,6 +12,7 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="GameUi" type="Control" unique_id=1722941089]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
