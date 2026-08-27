@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckmvqd0sqcrqo" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Texture2D" uid="uid://rddf31tg0o1p" path="res://assets/models/player/Textures/colormap.png" id="2_dovo2"]
+[ext_resource type="AudioStream" uid="uid://3drc18argl22" path="res://assets/audio/LongFall.wav" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 radius = 0.43701172
@@ -2782,3 +2783,8 @@ skeleton = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character-female-a2" unique_id=88475339]
 libraries/ = SubResource("AnimationLibrary_udj03")
+
+[node name="FallenOffSound" type="AudioStreamPlayer" parent="." unique_id=59468864]
+stream = ExtResource("3_gmlin")
+
+[connection signal="finished" from="FallenOffSound" to="." method="_on_fallen_off_sound_finished"]

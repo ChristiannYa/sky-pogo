@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://fynnvxbmccyl" path="res://scenes/player/player.tscn" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://cj2syxkspb8u4" path="res://scenes/spawner/spawner.tscn" id="3_kelw5"]
 [ext_resource type="PackedScene" uid="uid://bvclg3754r5qh" path="res://scenes/player_camera/player_camera.tscn" id="4_kelw5"]
+[ext_resource type="AudioStream" uid="uid://dmr802jim7rv5" path="res://assets/audio/Arroz Con Pollo.mp3" id="5_lfrn8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ifgtf"]
 panorama = ExtResource("1_sul5r")
@@ -33,3 +34,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 
 [node name="PlayerCamera" parent="." unique_id=55984909 instance=ExtResource("4_kelw5")]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 10, 8)
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=80021166]
+stream = ExtResource("5_lfrn8")
+volume_db = -9.0
+autoplay = true
+parameters/looping = true

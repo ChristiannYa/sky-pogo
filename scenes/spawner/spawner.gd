@@ -7,7 +7,7 @@ extends Node
 @onready var platform: Platform = $Platform
 
 
-const _OFFSET_HOR = Vector2(1.7, 4.0)
+const _OFFSET_HOR = Vector2(2.0, 4.0)
 const _OFFSET_VER = Vector2(2.7, 4.0)
 
 

@@ -3,20 +3,24 @@ extends CharacterBody3D
 
 
 @onready var animation_player: AnimationPlayer = $"character-female-a2/AnimationPlayer"
+@onready var fallen_off_sound: AudioStreamPlayer = $FallenOffSound
 
 
 const _JUMP_FORCE = 20.0
 const _GRAVITY = 40.0
-const _ROTATION_SPEED = 4.0
+const _ROTATION_SPEED = 5.0
 const _MOVE_SPEED = 4.0
+const _FALL_OFF_MARGIN = 20.0
 
+var _fall_off_y = 0.0
+var _fell_off = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	_fall_off_y = position.y - _FALL_OFF_MARGIN
 
 func _physics_process(delta: float):
 	handle_gravity(delta)
+	handle_fall()
 	handle_rotation(delta)
 	handle_movement()
 	handle_air_hop()
@@ -26,6 +30,11 @@ func _physics_process(delta: float):
 func handle_gravity(delta: float):
 	velocity.y -= _GRAVITY * delta
 	if is_on_floor(): velocity.y = _JUMP_FORCE
+	
+func handle_fall():
+	if not _fell_off and position.y < _fall_off_y:
+		_fell_off = true
+		fallen_off_sound.play()
 
 func handle_rotation(delta: float):
 	var base: float = _ROTATION_SPEED * delta
@@ -49,3 +58,7 @@ func handle_air_hop():
 func handle_animation():
 	if velocity.y > 0: animation_player.play("jump")
 	else: animation_player.play("fall")
+
+
+func _on_fallen_off_sound_finished() -> void:
+	print("game over")
