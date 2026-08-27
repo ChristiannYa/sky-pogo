@@ -19,6 +19,7 @@ func _physics_process(delta: float):
 	handle_gravity(delta)
 	handle_rotation(delta)
 	handle_movement()
+	handle_air_hop()
 	move_and_slide()
 	handle_animation()
 
@@ -37,6 +38,13 @@ func handle_movement():
 	var forward: Vector3 = transform.basis.z * Input.get_action_strength("ui_up")
 	velocity.x = forward.x * _MOVE_SPEED
 	velocity.z = forward.z * _MOVE_SPEED
+	
+var can_air_hop = false
+func handle_air_hop():
+	if is_on_floor(): can_air_hop = true
+	if Input.is_action_just_pressed("space") and can_air_hop:
+		can_air_hop = false
+		velocity.y = _JUMP_FORCE * 0.6
 
 func handle_animation():
 	if velocity.y > 0: animation_player.play("jump")
