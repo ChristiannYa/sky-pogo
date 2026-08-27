@@ -14,6 +14,7 @@ const _FALL_OFF_MARGIN = 20.0
 
 var _fall_off_y = 0.0
 var _fell_off = false
+var _best_height = 0
 
 func _ready():
 	_fall_off_y = position.y - _FALL_OFF_MARGIN
@@ -25,6 +26,7 @@ func _physics_process(delta: float):
 	handle_movement()
 	handle_air_hop()
 	handle_animation()
+	update_height()
 	move_and_slide()
 
 func handle_gravity(delta: float):
@@ -59,6 +61,10 @@ func handle_animation():
 	if velocity.y > 0: animation_player.play("jump")
 	else: animation_player.play("fall")
 
+func update_height():
+	if position.y > _best_height: 
+		_best_height = position.y
+		SignalHub.emit_new_height(int(_best_height))
 
 func _on_fallen_off_sound_finished() -> void:
 	SignalHub.emit_game_over()
