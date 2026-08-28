@@ -19,8 +19,7 @@ func _on_animation_player_animation_finished(anim_name: StringName):
 
 func _on_area_3d_body_entered(body: Node3D):
 	if body is Player and not _is_hit:
-			_is_hit = true
-			land_effect.play()
-			timer.start(wait_time * randf_range(0.75, 1.2))
-			SignalHub.emit_new_platform(position)
-			
+		_is_hit = true
+		land_effect.play()
+		timer.start(wait_time * randf_range(0.75, 1.2))
+		SignalHub.emit_new_platform(position)

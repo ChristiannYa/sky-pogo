@@ -9,11 +9,10 @@ var _base_pos: Vector3
 
 
 func _ready():
-	SignalHub.new_platform.connect(on_spawn_platform)
+	SignalHub.new_platform.connect(func(old_pos: Vector3):
+		_base_pos = old_pos + buffer	
+	)
 	_base_pos = position
 	
 func _physics_process(delta: float):
 	position = position.lerp(_base_pos, smooth_speed * delta)
-
-func on_spawn_platform(old_pos: Vector3):
-	_base_pos = old_pos + buffer
